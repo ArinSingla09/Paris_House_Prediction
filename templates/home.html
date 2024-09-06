@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris House Price Prediction</title>
+    <style>
+        body {
+            background-color: lightgreen;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            height: 70vh;
+            width: 65vw;
+            border-radius: 5%;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+        label {
+            text-align: right;
+        }
+        input[type="submit"] {
+            grid-column: span 2;
+            width: 50%;
+            justify-self: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paris House Price Prediction</h1>
+    <div class="container">
+        <form method="post" action="{{ url_for('predict') }}">
+            <label for="a">Square Meters:</label>
+            <input type="number" name="a" id="a" required>
+            <label for="b">Number Of Rooms:</label>
+            <input type="number" name="b" id="b" required>
+            <label for="c">Floors:</label>
+            <input type="number" name="c" id="c" required>
+            <label for="d">City Code:</label>
+            <input type="number" name="d" id="d" required>
+            <label for="e">City Part Range:</label>
+            <input type="number" name="e" id="e" required>
+            <label for="f">Number of Previous Owners:</label>
+            <input type="number" name="f" id="f" required>
+            <label for="g">Basement Area:</label>
+            <input type="number" name="g" id="g" required>
+            <label for="h">Attic Area:</label>
+            <input type="number" name="h" id="h" required>
+            <label for="i">Garage Area:</label>
+            <input type="number" name="i" id="i" required>
+            <label for="j">Number Of Guest Rooms:</label>
+            <input type="number" name="j" id="j" required>
+            <input type="submit" onclick="" value="Predict">
+        </form>
+        <br>
+        <br>
+        <h3>{{prediction_text}}</h3>
+        <h3>{{input_text}}</h3>
+    </div>
+</body>
+</html>
